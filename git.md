@@ -36,9 +36,49 @@ $ git add README.md     # 특정 파일을 stage
 $ git add images/       # 특정 폴더를 stage
 ```
 
+`add`를 한 이후에는 항상 `status` 명령어를 통해 원하는 대로 되었는지 확인한다.
 
+```bash
+$ git status
+On branch master
 
+No commits yet
 
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   git.md
+        new file:   images/1.jpg
+        new file:   markdown.md
+
+```
+
+### 3. `commit`
+
+`git` 은 `commit` 을 통해 이력을 남긴다. 
+
+커밋 시에는 항상 메시지를 통해 해당 이력의 정보를 나타내야 한다.
+
+```bash
+$ git commit -m 'Init'
+[master (root-commit) 3249278] Init
+ 3 files changed, 143 insertions(+)
+ create mode 100644 git.md
+ create mode 100644 images/1.jpg
+ create mode 100644 markdown.md
+
+```
+
+커밋 목록은 아래의 명령어를 통해 확인 가능하다.
+
+```bash
+$ git log
+commit 3249278af8db0568c6dc4b91bc7daa24af47bd89 (HEAD -> master)
+Author: edutak <edutak.ssafy@gmail.com>
+Date:   Thu Dec 5 16:54:01 2019 +0900
+
+    Init
+
+```
 
 
 
