@@ -127,5 +127,39 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 
 
+### 3. 원격 저장소 활용 명령어
+
+1. 원격 저장소 목록 조회
+
+   ```bash
+   $ git remote -v
+   origin  https://github.com/edutak/bigiot-a.git
+   origin  https://github.com/edutak/bigiot-a.git
+   ```
+
+2. 원격 저장소 설정 삭제
+
+   ```bash
+   $ git remote rm {원격저장소이름}
+   ```
+
+3. 원격 저장소 설정
+
+   ```bash
+   $ git remote add origin {URL}
+   ```
+
+   
+
+
+
+
+
+
+
+
+
+
+
 
 
