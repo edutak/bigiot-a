@@ -8,6 +8,7 @@
 
 * git 기초 문법
 * .gitignore
+* git-flow
 
 ### 알고리즘스터디
 
