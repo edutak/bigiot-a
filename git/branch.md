@@ -217,21 +217,96 @@
 
 1. feature/board branch 생성 및 이동
 
+   ```bash
+   $ git checkout -b feature/board
+   ```
+
 2. 작업 완료 후 commit
 
+   ```bash
+   $ touch board.txt
+   # README.md 파일 수정
+   $ git status
+   On branch feature/board
+   Changes not staged for commit:
+     (use "git add <file>..." to update what will be committed)
+     (use "git restore <file>..." to discard changes in working directory)
+           modified:   README.md
+   
+   Untracked files:
+     (use "git add <file>..." to include in what will be committed)
+           board.txt
+   $ git add .
+   $ git commit -m 'Complete board & Update README'
+   ```
+
 3. master 이동
+
+   ```bash
+   $ git checkout master
+   ```
 
 4. *master에 추가 commit 이 발생시키기!!*
 
    - **동일 파일을 수정 혹은 생성하세요!**
 
+   - ```bash
+     # README 수정
+     $ git add .
+     $ git commit -m 'Update READEME'
+     ```
+
+     
+
 5. master에 병합
+
+   ```bash
+   $ git merge feature/board
+   Auto-merging README.md
+   CONFLICT (content): Merge conflict in README.md
+   Automatic merge failed; fix conflicts and then commit the result.
+   
+   (master|MERGING) $
+   ```
+
+   
 
 6. 결과 -> *merge conflict발생*
 
    > git status 명령어로 충돌 파일을 확인할 수 있음.
 
+   ```bash
+   (master|MERGING) $ git status
+   On branch master
+   You have unmerged paths.
+     (fix conflicts and run "git commit")
+     (use "git merge --abort" to abort the merge)
+   
+   Changes to be committed:
+           new file:   board.txt
+   
+   Unmerged paths:
+     (use "git add <file>..." to mark resolution)
+           both modified:   README.md
+   
+   ```
+
 7. 충돌 확인 및 해결
+
+   * 해당 파일 원하는대로 수정
+
+     ```
+     <<<<<< HEAD
+     * 마스터 작업
+     ============
+     >>>>>>> feature/board
+     ```
+
+   * 수정 완료 후 add
+
+     ```bash
+     $ git add .
+     ```
 
 8. merge commit 진행
 
@@ -247,4 +322,27 @@
 
 9. 그래프 확인하기
 
-10. branch 삭제b
+   ```bash
+   $ git log --oneline --graph
+   *   de31803 (HEAD -> master) Merge branch 'feature/board'
+   |\
+   | * 3e53676 (feature/board) Compelte board & update README.md
+   * | d58153b Update README
+   |/
+   *   3348e1f Merge branch 'feature/signout'
+   |\
+   | * 2dfe2d8 Complete signout
+   * | 07c50a5 Hotfix
+   |/
+   * 4580910 Complete test
+   * a897640 Complete menu
+   * 65b6242 Init
+   ```
+
+10. branch 삭제
+
+    ```bash
+    $ git branch -d feature/board
+    ```
+
+    
